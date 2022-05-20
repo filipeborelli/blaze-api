@@ -1,0 +1,28 @@
+version: "1.0"
+services:
+  billing-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NPM_TOKEN: ${NPM_TOKEN}
+    container_name: billing-api
+    image: billing-api
+    user: "node"
+    working_dir: /usr/app
+    env_file:
+      - .env
+    volumes:
+      - ./:/usr/app
+    ports:
+      - 3000:3000
+    expose:
+      - "3000"
+    networks:
+        - default_network
+    #command: "yarn start"
+
+networks:
+  default_network:
+    driver: bridge
+    external: true

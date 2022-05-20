@@ -1,0 +1,54 @@
+{
+  "presets": [
+    ["@babel/preset-env",
+      { "targets": { "node": "current"
+        }
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    ["module-resolver",
+      {
+    "alias": {
+          "@components": "./src/components",
+          "@entities": "./src/entities",
+          "@repositories": "./src/repositories",
+          "@requirements": "./src/requirements",
+          "@database": "./src/database",
+          "@static": "./src/static",
+          "@providers": "./src/providers"
+        }
+      }
+    ],
+    "babel-plugin-transform-typescript-metadata",
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-methods",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-private-property-in-object",
+      {
+        "loose": true
+      }
+    ]
+  ],
+  "ignore": [
+    "./src/__tests__",
+    "./src/@types"
+  ]
+}
